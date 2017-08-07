@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key></key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -30,9 +32,11 @@
 		<string>healthkit</string>
 	</array>
 	<key>NSHealthShareUsageDescription</key>
-	<string>For your health</string>
+	<string>Visualize inhaler usage</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>For more health</string>
+	<string>Record inhaler usage</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Save location of inhaler usage</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

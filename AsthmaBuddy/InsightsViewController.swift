@@ -11,6 +11,7 @@ import UIKit
 import MapKit
 import HealthKit
 import ResearchKit
+import CoreLocation
 
 // MARK: HealthKit Constants
 let chartStartDateString = "07/30/2017"
@@ -22,7 +23,7 @@ let inputFormat = "MM/dd/yyyy"
 let chartFormat = "M/d"
 
 // MARK: Map  Constants
-let regionRadius: CLLocationDistance = 75_000
+let initialRegionRadius: CLLocationDistance = 75_000
 let initialLocation = CLLocation(latitude: 39.570154341901485, longitude: -105.30286789781341)
 
 
@@ -44,13 +45,8 @@ class InsightsViewController: UIViewController, BaseHealthKitViewControllerProto
     @IBOutlet weak var lineGraphChart: ORKLineGraphChartView!
     @IBOutlet weak var mapView: MKMapView!
     
-    
-    // todo: group by sample data
     let sampleDates = NSMutableOrderedSet()
-    
-    
-    
-//    var samples : [HKQuantitySample]?
+    var samplesWithLocation = [HKQuantitySample]()
     
     var countByDate:[Date: Double] = [:]
     let formatter = DateFormatter()
@@ -85,6 +81,7 @@ class InsightsViewController: UIViewController, BaseHealthKitViewControllerProto
         HealthKitAdapter.sharedInstance.getInhalerUsage(completion: { (data) in
             if let data = data {
                 self.loadChartData(data: data)
+                self.loadMapData(data: data)
             }
         })
     }
@@ -102,8 +99,6 @@ class InsightsViewController: UIViewController, BaseHealthKitViewControllerProto
     }
     
     func setupChartData(){
-
-        
         formatter.dateFormat = inputFormat
         
         var increment = DateComponents()
@@ -138,16 +133,24 @@ class InsightsViewController: UIViewController, BaseHealthKitViewControllerProto
     
     func centerMapOnLocation(_ location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius * 2.0, regionRadius * 2.0)
+                                                                  initialRegionRadius * 2.0, initialRegionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
     func setupMapData(){
-        let samples : [HKQuantitySample] = [HKQuantitySample.init(type: inhalerUsageQuantitityType , quantity: quantityOne, start: Date(), end: Date())]
+//        let samples : [HKQuantitySample] = [HKQuantitySample.init(type: inhalerUsageQuantitityType , quantity: quantityOne, start: Date(), end: Date())]
         
-        mapView.addAnnotations(samples)
+    }
+    
+    func loadMapData(data:[HKQuantitySample]){
+        self.samplesWithLocation = data.sampleLocations(start:startDate, end:endDate)
         
-        mapView.delegate = self
+        DispatchQueue.main.async {
+            // clear current
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            // add annotations
+            self.mapView.addAnnotations(self.samplesWithLocation)
+        }
     }
 }
 

@@ -14,6 +14,8 @@ let inhalerUsageQuantitityType = HKObjectType.quantityType(forIdentifier: HKQuan
 let quantityOne = HKQuantity(unit:HKUnit.count(), doubleValue:1.0)
 
 typealias UsageCompletionBlock = (([HKQuantitySample]?) -> Void)
+    
+let usageLocationKey = "UsageLocation"
 
 class HealthKitAdapter: NSObject {
 
@@ -41,12 +43,36 @@ class HealthKitAdapter: NSObject {
     
     // save single useage
     
-    func recordUsage(){ // pass in a competion block
+    func recordUsage(withLocation location:CLLocation){ // pass in a competion block
         let date = Date()
         
-        let sample = HKQuantitySample(type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!, quantity: quantityOne, start: date, end: date)
+        let coordinateString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+        
+        let sample = HKQuantitySample(
+            type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
+            quantity: quantityOne,
+            start: date,
+            end: date,
+            metadata: [usageLocationKey:coordinateString]
+        )
+        
         healthKitStore.save(sample) { (success, error) in
-            // pass
+            print("saved one use to health kit, with location")
+        }
+    }
+    
+    func recordUsage(){
+        let date = Date()
+        
+        let sample = HKQuantitySample(
+            type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
+            quantity: quantityOne,
+            start: date,
+            end: date
+        )
+        
+        healthKitStore.save(sample) { (success, error) in
+            print("saved one use to health kit")
         }
     }
     
@@ -153,6 +179,10 @@ extension Array where  Iterator.Element == HKQuantitySample {
         
         return result
     }
+    
+    func sampleLocations(start:Date, end:Date) -> [HKQuantitySample] {
+        return self.filter { (s) -> Bool in s.startDate > start && s.endDate < end && s.metadata?[usageLocationKey] != nil}
+    }
 }
     
 // MARK: - HKQantitySample implements MKAnnotation
@@ -163,9 +193,14 @@ extension HKQuantitySample : MKAnnotation {
     
     public var coordinate: CLLocationCoordinate2D {
         
-        // todo: check metadata for location
-        
-        return CLLocationCoordinate2D(latitude: 39.570154341901485, longitude: -105.30286789781341)
+        // todo: parse coordinates from metadata
+        if let location = self.metadata?[usageLocationKey] as? String{
+            let coordinate = location.components(separatedBy: ",")
+            
+            return CLLocationCoordinate2D(latitude: Double(coordinate[0])!, longitude: Double(coordinate[1])!)
+        } else {
+            return CLLocationCoordinate2D(latitude: 39.570154341901485, longitude: -105.30286789781341)
+        }
     }
     
     // pinTintColor for disciplines: Sculpture, Plaque, Mural, Monument, other
