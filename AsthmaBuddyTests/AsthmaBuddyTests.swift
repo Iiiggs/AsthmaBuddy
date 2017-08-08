@@ -36,7 +36,7 @@ class AsthmaBuddyTests: XCTestCase {
                                             HKQuantitySample.init(type: inhalerUsageQuantitityType , quantity: quantityOne, start: date4, end: date4)]
         self.store.save(samples) { (success, error) in
             if success {
-                print("Saved records")
+                print("Saved records to health store")
             } else {
                 print(error.debugDescription)
             }

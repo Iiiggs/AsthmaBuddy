@@ -12,10 +12,10 @@ import HealthKit
 
 // [X] Wire up dob and gender
 // [X] add tint and selected styling to inhalerUsed button
-// [ ] fix so we only post one usage - didUpdateLoccatinos called multiple times
+// [X] fix so we only post one usage - didUpdateLoccatinos called multiple times
 // [ ] check for didUpdateLocation error and save without location
 // [ ] add button for creating sample data: HealthKitAdapter.sharedInstance.createSampleData()
-
+// [ ] deal with no location services or denied gracefully
 
 
 class ProfileViewController: UIViewController, BaseHealthKitViewControllerProtocol {
@@ -24,28 +24,24 @@ class ProfileViewController: UIViewController, BaseHealthKitViewControllerProtoc
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
-    
-    
-    
+
     let locationManager = CLLocationManager()
+    var gettingLocation  = false
     
-    override func viewDidLoad() {
+    
+    func requestLocation(){
+        locationManager.requestWhenInUseAuthorization()
         
-        
+        locationManager.delegate = self
+        locationManager.distanceFilter = 100.0
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+        gettingLocation = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         loadDemographics()
     }
-    
-    func requestLocation(){
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.requestLocation()
-    }
-    
-    
     
     func healthKitReady() {
         loadDemographics()
@@ -74,27 +70,22 @@ class ProfileViewController: UIViewController, BaseHealthKitViewControllerProtoc
         requestLocation()
     }
     
-    func saveUsage(location:CLLocation){
+    func saveUsage(location:CLLocation?){
         HealthKitAdapter.sharedInstance.recordUsage(withLocation:location)
     }
 }
 
 extension ProfileViewController : CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
-        HealthKitAdapter.sharedInstance.recordUsage()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == CLAuthorizationStatus.authorizedWhenInUse {
-            locationManager.requestLocation()
-        } else {
-            HealthKitAdapter.sharedInstance.recordUsage()
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        
+        if (gettingLocation){
+            gettingLocation = false
+            self.saveUsage(location: location)
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[0]
-        self.saveUsage(location: location)
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
+        self.saveUsage(location: nil)
     }
 }

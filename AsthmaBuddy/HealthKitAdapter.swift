@@ -23,71 +23,61 @@ class HealthKitAdapter: NSObject {
 
     override init() {
         
-//        [STEP 1]
-//        guard let inhalerUsageType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage) else {
-//            // Precondition failure
-//            return
-//        }
-//        
-//        let typesToShare : Set = [inhalerUsageType]
-//        let typesToRead : Set = [inhalerUsageType, dobCharacteristicType, genderCharacteristicType]
-//
-//        if(HKHealthStore.isHealthDataAvailable()){
-//            self.healthKitStore.requestAuthorization(toShare: typesToShare, read: typesToRead, completion: { (success, error) in
-//                let hkReadyNotif = Notification(name: .healthKitReady, object: nil)
-//                // get some data
-//                NotificationCenter.default.post(hkReadyNotif)
-//            })
-//        }
+//        [STEP 1]: Authorization
+        let typesToShare : Set = [inhalerUsageQuantitityType]
+        let typesToRead : Set = [inhalerUsageQuantitityType, dobCharacteristicType, genderCharacteristicType]
+
+        if(HKHealthStore.isHealthDataAvailable()){
+            self.healthKitStore.requestAuthorization(toShare: typesToShare, read: typesToRead, completion: { (success, error) in
+                let hkReadyNotif = Notification(name: .healthKitReady, object: nil)
+                // get some data
+                NotificationCenter.default.post(hkReadyNotif)
+            })
+        }
     }
     
     func getDemograhics(completion: @escaping DemographicsCompletionBlock) {
-        
-        
-//        [STEP 2]
-//          do {
-//            let dob = try healthKitStore.dateOfBirthComponents().date!
-//            let gender = try healthKitStore.biologicalSex()
-//            completion(dob, gender.biologicalSex)
-//        } catch  {
-//            print("Error")
-//        }
+//        [STEP 2]: Characteristic types
+          do {
+            let dob = try healthKitStore.dateOfBirthComponents().date!
+            let gender = try healthKitStore.biologicalSex()
+            completion(dob, gender.biologicalSex)
+        } catch  {
+            print("Error")
+        }
     }
     
-    func recordUsage(withLocation location:CLLocation){ // pass in a competion block
+    func recordUsage(withLocation location:CLLocation?){ // pass in a competion block
+//        [STEP 3]: Save samples
+        let date = Date()
         
-//        [STEP 3]
-//        let date = Date()
-//        
-//        let coordinateString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
-//        
-//        let sample = HKQuantitySample(
-//            type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
-//            quantity: quantityOne,
-//            start: date,
-//            end: date,
-//            metadata: [usageLocationKey:coordinateString]
-//        )
-//        
-//        healthKitStore.save(sample) { (success, error) in
-//            print("saved one use to health kit, with location")
-//        }
-    }
-    
-    func recordUsage(){
-//        [STEP 4]
-//        let date = Date()
-//        
-//        let sample = HKQuantitySample(
-//            type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
-//            quantity: quantityOne,
-//            start: date,
-//            end: date
-//        )
-//        
-//        healthKitStore.save(sample) { (success, error) in
-//            print("saved one use to health kit")
-//        }
+        if let location = location {
+            let coordinateString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+            
+            let sample = HKQuantitySample(
+                type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
+                quantity: quantityOne,
+                start: date,
+                end: date,
+                metadata: [usageLocationKey:coordinateString]
+            )
+            
+            healthKitStore.save(sample) { (success, error) in
+                print("saved one use to health kit, with location")
+            }
+        }
+        else {
+            let sample = HKQuantitySample(
+                type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
+                quantity: quantityOne,
+                start: date,
+                end: date
+            )
+            
+            healthKitStore.save(sample) { (success, error) in
+                print("saved one use to health kit")
+            }
+        }
     }
     
     func getInhalerUsage(completion: @escaping InhalerUsageCompletionBlock){

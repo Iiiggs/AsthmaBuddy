@@ -61,8 +61,6 @@ class InsightsViewController: UIViewController, BaseHealthKitViewControllerProto
         setupChartData()
         
         setupMap()
-        
-        setupMapData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,8 +103,7 @@ class InsightsViewController: UIViewController, BaseHealthKitViewControllerProto
             sampleDates.add(currentDate)
             currentDate = NSCalendar.current.date(byAdding: increment, to: currentDate)!
         }
-        
-        print(self.sampleDates)
+
         loadData()
     }
     
@@ -131,11 +128,6 @@ class InsightsViewController: UIViewController, BaseHealthKitViewControllerProto
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   initialRegionRadius * 2.0, initialRegionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
-    func setupMapData(){
-//        let samples : [HKQuantitySample] = [HKQuantitySample.init(type: inhalerUsageQuantitityType , quantity: quantityOne, start: Date(), end: Date())]
-        
     }
     
     func loadMapData(data:[HKQuantitySample]){
@@ -180,12 +172,6 @@ extension InsightsViewController : ORKValueRangeGraphChartViewDataSource {
 
 // MARK: InsightsViewController implements MKMapViewDelegate
 extension InsightsViewController : MKMapViewDelegate {
-    
-    public func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool){
-        print("New Center: \(mapView.centerCoordinate)")
-    }
-    
-    // 1
     func mapView(_ mapView: MKMapView,
                  viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? HKQuantitySample {
