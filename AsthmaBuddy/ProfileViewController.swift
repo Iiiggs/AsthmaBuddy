@@ -13,7 +13,7 @@ import HealthKit
 // [X] Wire up dob and gender
 // [X] add tint and selected styling to inhalerUsed button
 // [X] fix so we only post one usage - didUpdateLoccatinos called multiple times
-// [ ] check for didUpdateLocation error and save without location
+// [X] check for didUpdateLocation error and save without location
 // [ ] add button for creating sample data: HealthKitAdapter.sharedInstance.createSampleData()
 // [ ] deal with no location services or denied gracefully
 

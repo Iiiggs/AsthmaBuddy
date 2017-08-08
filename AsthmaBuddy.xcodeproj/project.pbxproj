@@ -13,6 +13,7 @@
 		A64AB2451F2FFF140021CACA /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A64AB2431F2FFF140021CACA /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A64AB2481F30CBA50021CACA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AB2471F30CBA50021CACA /* MainViewController.swift */; };
 		A6565FCF1F3973C900B18CD8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6565FCE1F3973C900B18CD8 /* Constants.swift */; };
+		A6565FD41F39893600B18CD8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6565FD31F39893600B18CD8 /* Utilities.swift */; };
 		A682123E1F22628B00DA30DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A682123D1F22628B00DA30DE /* QuartzCore.framework */; };
 		A68212401F22629300DA30DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A682123F1F22629300DA30DE /* CoreGraphics.framework */; };
 		A68212421F2262A300DA30DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68212411F2262A300DA30DE /* UIKit.framework */; };
@@ -71,6 +72,7 @@
 		A64AB2431F2FFF140021CACA /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64AB2471F30CBA50021CACA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A6565FCE1F3973C900B18CD8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A6565FD31F39893600B18CD8 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A682123D1F22628B00DA30DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A682123F1F22629300DA30DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A68212411F2262A300DA30DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -128,6 +130,7 @@
 			children = (
 				A69900A01F1D56DF008CE200 /* HealthKitAdapter.swift */,
 				A6565FCE1F3973C900B18CD8 /* Constants.swift */,
+				A6565FD31F39893600B18CD8 /* Utilities.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			files = (
 				A64AB2481F30CBA50021CACA /* MainViewController.swift in Sources */,
 				A69900A11F1D56DF008CE200 /* HealthKitAdapter.swift in Sources */,
+				A6565FD41F39893600B18CD8 /* Utilities.swift in Sources */,
 				A645C76D1F1E9BCD00FA79D9 /* InsightsViewController.swift in Sources */,
 				A6565FCF1F3973C900B18CD8 /* Constants.swift in Sources */,
 				A699007E1F1D517C008CE200 /* AppDelegate.swift in Sources */,
