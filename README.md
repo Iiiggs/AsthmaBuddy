@@ -1,10 +1,10 @@
 ## Demo app for 360iDev 2017
 
-### Steps:
+### Steps to Play Along:
 
-1. ~~~~ git clone https://github.com/Iiiggs/AsthmaBuddy ~~~~
+1. `git clone git@github.com:Iiiggs/AsthmaBuddy.git`
 
-2. ~~~~ open AsthmaBuddy.xcproject ~~~~
+2. `open AsthmaBuddy/AsthmaBuddy.xcodeproj/`
 
 3. Navigate to AsthmaBuddy/Shared/HealthKitAdapter.swift
 
