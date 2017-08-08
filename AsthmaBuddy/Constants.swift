@@ -17,3 +17,13 @@ let quantityOne = HKQuantity(unit:HKUnit.count(), doubleValue:1.0)
 
 typealias InhalerUsageCompletionBlock = (([HKQuantitySample]?) -> Void)
 typealias DemographicsCompletionBlock = ((Date, HKBiologicalSex) -> Void)
+
+let usageLocationKey = "UsageLocation"
+
+extension Notification.Name {
+    static let healthKitReady = Notification.Name("com.igorware.healthKitReadyKey")
+}
+
+@objc protocol BaseHealthKitViewControllerProtocol {
+    func healthKitReady()
+}

@@ -12,10 +12,10 @@ import HealthKit
 
 // [X] Wire up dob and gender
 // [X] add tint and selected styling to inhalerUsed button
-
 // [ ] fix so we only post one usage - didUpdateLoccatinos called multiple times
-// [ ] add button for creating sample data: HealthKitAdapter.sharedInstance.createSampleData()
 // [ ] check for didUpdateLocation error and save without location
+// [ ] add button for creating sample data: HealthKitAdapter.sharedInstance.createSampleData()
+
 
 
 class ProfileViewController: UIViewController, BaseHealthKitViewControllerProtocol {

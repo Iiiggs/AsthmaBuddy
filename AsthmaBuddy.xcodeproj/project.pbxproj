@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A645C7691F1E998700FA79D9 /* BaseHealthKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645C7681F1E998700FA79D9 /* BaseHealthKitViewController.swift */; };
 		A645C76B1F1E9A6000FA79D9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645C76A1F1E9A6000FA79D9 /* ProfileViewController.swift */; };
 		A645C76D1F1E9BCD00FA79D9 /* InsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645C76C1F1E9BCD00FA79D9 /* InsightsViewController.swift */; };
 		A64AB2441F2FFF140021CACA /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64AB2431F2FFF140021CACA /* ResearchKit.framework */; };
@@ -66,7 +65,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A645C7681F1E998700FA79D9 /* BaseHealthKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHealthKitViewController.swift; sourceTree = "<group>"; };
 		A645C76A1F1E9A6000FA79D9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A645C76C1F1E9BCD00FA79D9 /* InsightsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsViewController.swift; sourceTree = "<group>"; };
 		A64AB2381F2FFE490021CACA /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 		A64AB24A1F30CF1E0021CACA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				A645C7681F1E998700FA79D9 /* BaseHealthKitViewController.swift */,
 				A69900A01F1D56DF008CE200 /* HealthKitAdapter.swift */,
 				A6565FCE1F3973C900B18CD8 /* Constants.swift */,
 			);
@@ -348,7 +345,6 @@
 			files = (
 				A64AB2481F30CBA50021CACA /* MainViewController.swift in Sources */,
 				A69900A11F1D56DF008CE200 /* HealthKitAdapter.swift in Sources */,
-				A645C7691F1E998700FA79D9 /* BaseHealthKitViewController.swift in Sources */,
 				A645C76D1F1E9BCD00FA79D9 /* InsightsViewController.swift in Sources */,
 				A6565FCF1F3973C900B18CD8 /* Constants.swift in Sources */,
 				A699007E1F1D517C008CE200 /* AppDelegate.swift in Sources */,
