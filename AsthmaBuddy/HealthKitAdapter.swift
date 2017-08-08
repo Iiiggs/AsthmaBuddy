@@ -10,10 +10,7 @@ import UIKit
 import HealthKit
 import MapKit
 
-let inhalerUsageQuantitityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!
-let quantityOne = HKQuantity(unit:HKUnit.count(), doubleValue:1.0)
 
-typealias UsageCompletionBlock = (([HKQuantitySample]?) -> Void)
     
 let usageLocationKey = "UsageLocation"
 
@@ -29,8 +26,8 @@ class HealthKitAdapter: NSObject {
             return
         }
         
-        let typesToShare : Set<HKQuantityType> = [inhalerUsageType]
-        let typesToRead : Set<HKQuantityType> = [inhalerUsageType]
+        let typesToShare : Set = [inhalerUsageType]
+        let typesToRead : Set = [inhalerUsageType, dobCharacteristicType, genderCharacteristicType]
 
         if(HKHealthStore.isHealthDataAvailable()){
             self.healthKitStore.requestAuthorization(toShare: typesToShare, read: typesToRead, completion: { (success, error) in
@@ -38,6 +35,20 @@ class HealthKitAdapter: NSObject {
                 // get some data
                 NotificationCenter.default.post(hkReadyNotif)
             })
+        }
+    }
+    
+    func getDemograhics(completion: @escaping DemographicsCompletionBlock) {
+          do {
+            let dob = try healthKitStore.dateOfBirthComponents().date!
+            
+
+            let gender = try healthKitStore.biologicalSex()
+            
+            completion(dob, gender.biologicalSex)
+            
+        } catch  {
+            print("Error")
         }
     }
     
@@ -77,7 +88,7 @@ class HealthKitAdapter: NSObject {
     }
     
     // get all usages
-    func getInhalerUsage(completion: @escaping UsageCompletionBlock){
+    func getInhalerUsage(completion: @escaping InhalerUsageCompletionBlock){
         // for map and trends chart
         let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!
         let query = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: 100, sortDescriptors: nil) { (query, samples, error) in
@@ -127,37 +138,6 @@ extension Array {
     
 // MARK: - Array<HKQuantitySample> countByDate
 extension Array where  Iterator.Element == HKQuantitySample {
-//    func sampleValueCountByDate(start:Date, end:Date) -> [(String, Double)] {
-//        let filtered = self.filter { (sample) -> Bool in
-//            return sample.startDate > start && sample.endDate < end
-//        }
-//        
-//        // group by date
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "MM/dd"
-//        
-//        let grouped = filtered.group { (sample) -> String in
-//            let sampleDate = sample.startDate
-//            return formatter.string(from: sampleDate)
-//        }
-//        
-//        // extract values
-//        let mapped = grouped.map { (quantitiesForDate) -> (String, Double) in
-//            let values = quantitiesForDate.value
-//            
-//            let sum = values.reduce(0.0, { (r, sample) -> Double in
-//                let sum : Double = r
-//                let value : Double = sample.quantity.doubleValue(for:HKUnit.count())
-//                
-//                return value + sum
-//            })
-//            
-//            return (quantitiesForDate.key, sum)
-//        }
-//        
-//        return mapped
-//    }
-    
     func sampleValueCountByDate(start:Date, end:Date) -> [Date: Double] {
         var currentDate = start
         
@@ -192,14 +172,12 @@ extension HKQuantitySample : MKAnnotation {
     }
     
     public var coordinate: CLLocationCoordinate2D {
-        
-        // todo: parse coordinates from metadata
         if let location = self.metadata?[usageLocationKey] as? String{
             let coordinate = location.components(separatedBy: ",")
             
             return CLLocationCoordinate2D(latitude: Double(coordinate[0])!, longitude: Double(coordinate[1])!)
         } else {
-            return CLLocationCoordinate2D(latitude: 39.570154341901485, longitude: -105.30286789781341)
+            return CLLocationCoordinate2D(latitude: 39.570154341901485, longitude: -105.30286789781341) 
         }
     }
     

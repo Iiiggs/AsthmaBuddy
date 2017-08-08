@@ -30,13 +30,11 @@ let initialLocation = CLLocation(latitude: 39.570154341901485, longitude: -105.3
 // [X] setup start/end dates
 // [X] format axis labels with short dates
 // [X] replace navigation with segamented controls
-
-
 // [X] insert sample  data  (with custom locations)into HKStore
 // [X] utility to group samples by date
 // [X] query to retreive 7 days of data and group by day bucket
-// [ ] integrate map with location metadata
-// [ ] add tint and selected styling to inhalerUsed button
+// [X] integrate map with location metadata
+// [ ] dynamic timerange
 
 
 class InsightsViewController: UIViewController, BaseHealthKitViewControllerProtocol {
@@ -94,8 +92,6 @@ class InsightsViewController: UIViewController, BaseHealthKitViewControllerProto
         self.endDate = formatter.date(from: chartEndDateString)!
         
         self.lineGraphChart.dataSource = self
-        
-        // todo: scroll chart down to 0
     }
     
     func setupChartData(){

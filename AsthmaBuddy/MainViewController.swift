@@ -15,12 +15,10 @@ class MainViewController: UIViewController {
     
     private lazy var profileViewController: ProfileViewController = {
         return self.instantiateViewController(withName: "ProfileViewController") as! ProfileViewController
-        // todo: implement notification of healthKitRead
     }()
     
     private lazy var insightsViewController: InsightsViewController = {
         return self.instantiateViewController(withName: "InsightsViewController") as! InsightsViewController
-        // todo: implement notification of healthKitRead
     }()
     
     func instantiateViewController(withName name:String) -> BaseHealthKitViewControllerProtocol {
@@ -29,6 +27,7 @@ class MainViewController: UIViewController {
         
         // Instantiate View Controller
         let viewController = storyboard.instantiateViewController(withIdentifier: name) as! BaseHealthKitViewControllerProtocol
+        NotificationCenter.default.addObserver(viewController, selector: #selector(BaseHealthKitViewControllerProtocol.healthKitReady), name: .healthKitReady, object: nil)
         
         // Add View Controller as Child View Controller
         self.add(asChildViewController: viewController as! UIViewController)
