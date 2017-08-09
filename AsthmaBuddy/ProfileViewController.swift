@@ -10,12 +10,11 @@ import UIKit
 import CoreLocation
 import HealthKit
 
-// [X] Wire up dob and gender
-// [X] add tint and selected styling to inhalerUsed button
-// [X] fix so we only post one usage - didUpdateLoccatinos called multiple times
-// [X] check for didUpdateLocation error and save without location
+
+
 // [ ] add button for creating sample data: HealthKitAdapter.sharedInstance.createSampleData()
 // [ ] deal with no location services or denied gracefully
+// [ ] healthkit ready didn't work on fresh install
 
 
 class ProfileViewController: UIViewController, BaseHealthKitViewControllerProtocol {
@@ -27,17 +26,6 @@ class ProfileViewController: UIViewController, BaseHealthKitViewControllerProtoc
 
     let locationManager = CLLocationManager()
     var gettingLocation  = false
-    
-    
-    func requestLocation(){
-        locationManager.requestWhenInUseAuthorization()
-        
-        locationManager.delegate = self
-        locationManager.distanceFilter = 100.0
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestLocation()
-        gettingLocation = true
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         loadDemographics()
@@ -68,6 +56,16 @@ class ProfileViewController: UIViewController, BaseHealthKitViewControllerProtoc
     
     @IBAction func trackUsage(_ sender: Any) {
         requestLocation()
+    }
+    
+    func requestLocation(){
+        locationManager.requestWhenInUseAuthorization()
+        
+        locationManager.delegate = self
+        locationManager.distanceFilter = 100.0
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestLocation()
+        gettingLocation = true
     }
     
     func saveUsage(location:CLLocation?){

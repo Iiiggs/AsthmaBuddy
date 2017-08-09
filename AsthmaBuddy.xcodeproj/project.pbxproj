@@ -73,6 +73,7 @@
 		A64AB2471F30CBA50021CACA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A6565FCE1F3973C900B18CD8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6565FD31F39893600B18CD8 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		A6565FDB1F3AB17900B18CD8 /* HealthKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = HealthKit.playground; path = Playgrounds/HealthKit.playground; sourceTree = "<group>"; };
 		A682123D1F22628B00DA30DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A682123F1F22629300DA30DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A68212411F2262A300DA30DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -148,6 +149,14 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
+		A6565FD71F3AB15700B18CD8 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				A6565FDB1F3AB17900B18CD8 /* HealthKit.playground */,
+			);
+			name = Playgrounds;
+			sourceTree = "<group>";
+		};
 		A6831F801F3239E800B072F9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +189,7 @@
 		A699007C1F1D517C008CE200 /* AsthmaBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				A6565FD71F3AB15700B18CD8 /* Playgrounds */,
 				A64AB24B1F30CF970021CACA /* Application */,
 				A64AB24A1F30CF1E0021CACA /* Shared */,
 				A64AB2491F30CEFF0021CACA /* Screens */,

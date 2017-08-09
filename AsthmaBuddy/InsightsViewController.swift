@@ -26,14 +26,6 @@ let chartFormat = "M/d"
 let initialRegionRadius: CLLocationDistance = 75_000
 let initialLocation = CLLocation(latitude: 39.570154341901485, longitude: -105.30286789781341)
 
-
-// [X] setup start/end dates
-// [X] format axis labels with short dates
-// [X] replace navigation with segamented controls
-// [X] insert sample  data  (with custom locations)into HKStore
-// [X] utility to group samples by date
-// [X] query to retreive 7 days of data and group by day bucket
-// [X] integrate map with location metadata
 // [ ] dynamic timerange
 
 

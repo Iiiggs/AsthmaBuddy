@@ -13,6 +13,10 @@ let inhalerUsageQuantitityType = HKObjectType.quantityType(forIdentifier: HKQuan
 let genderCharacteristicType = HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!
 let dobCharacteristicType = HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!
 
+HKDocumentTypeIdentifier.CDA
+
+let categoryType = HKObjectType.categoryType(forIdentifier: HKCategoryTypeIdentifier.)
+
 let quantityOne = HKQuantity(unit:HKUnit.count(), doubleValue:1.0)
 
 typealias InhalerUsageCompletionBlock = (([HKQuantitySample]?) -> Void)
@@ -27,3 +31,5 @@ extension Notification.Name {
 @objc protocol BaseHealthKitViewControllerProtocol {
     func healthKitReady()
 }
+
+

@@ -11,8 +11,8 @@ import HealthKit
 import MapKit
 
 
-// [ ] move extensions somewhere?
-    
+// [ ] add blood type
+// [X] move extensions somewhere?
 
 
 class HealthKitAdapter: NSObject {
@@ -20,6 +20,7 @@ class HealthKitAdapter: NSObject {
     static let sharedInstance = HealthKitAdapter()
     
     private let healthKitStore = HKHealthStore()
+    
 
     override init() {
         
@@ -81,7 +82,7 @@ class HealthKitAdapter: NSObject {
     }
     
     func getInhalerUsage(completion: @escaping InhalerUsageCompletionBlock){
-//        [STEP 5]: Get data for charts
+//        [STEP 5]: Get data for chart and map
         let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!
         let query = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: 100, sortDescriptors: nil) { (query, samples, error) in
             completion(samples as? [HKQuantitySample])
