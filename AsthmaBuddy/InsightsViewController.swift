@@ -14,8 +14,8 @@ import ResearchKit
 import CoreLocation
 
 // MARK: HealthKit Constants
-let chartStartDateString = "07/30/2017"
-let chartEndDateString = "08/09/2017"
+let chartStartDateString = "08/3/2017"
+let chartEndDateString = "08/11/2017"
 
 
 // MARK: Chart  Constants

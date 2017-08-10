@@ -25,6 +25,7 @@
 		A699009F1F1D5648008CE200 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A699009E1F1D5648008CE200 /* MapKit.framework */; };
 		A69900A11F1D56DF008CE200 /* HealthKitAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69900A01F1D56DF008CE200 /* HealthKitAdapter.swift */; };
 		A69900A41F1D5AAE008CE200 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69900A31F1D5AAE008CE200 /* HealthKit.framework */; };
+		A6F207A51F3CAD0900111120 /* denver.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A6F207A41F3CAD0900111120 /* denver.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		A69900A01F1D56DF008CE200 /* HealthKitAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitAdapter.swift; sourceTree = "<group>"; };
 		A69900A21F1D5AAE008CE200 /* AsthmaBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AsthmaBuddy.entitlements; sourceTree = "<group>"; };
 		A69900A31F1D5AAE008CE200 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		A6F207A41F3CAD0900111120 /* denver.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = denver.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		A64AB24B1F30CF970021CACA /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				A6F207A41F3CAD0900111120 /* denver.gpx */,
 				A6787A641F3CA54C00A7EB74 /* Assets.xcassets */,
 				A69900A21F1D5AAE008CE200 /* AsthmaBuddy.entitlements */,
 				A699007D1F1D517C008CE200 /* AppDelegate.swift */,
@@ -339,6 +342,7 @@
 				A69900881F1D517C008CE200 /* LaunchScreen.storyboard in Resources */,
 				A6787A651F3CA54C00A7EB74 /* Assets.xcassets in Resources */,
 				A69900831F1D517C008CE200 /* Main.storyboard in Resources */,
+				A6F207A51F3CAD0900111120 /* denver.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
