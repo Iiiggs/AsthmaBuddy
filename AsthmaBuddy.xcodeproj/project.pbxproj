@@ -14,12 +14,12 @@
 		A64AB2481F30CBA50021CACA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AB2471F30CBA50021CACA /* MainViewController.swift */; };
 		A6565FCF1F3973C900B18CD8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6565FCE1F3973C900B18CD8 /* Constants.swift */; };
 		A6565FD41F39893600B18CD8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6565FD31F39893600B18CD8 /* Utilities.swift */; };
+		A6787A651F3CA54C00A7EB74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6787A641F3CA54C00A7EB74 /* Assets.xcassets */; };
 		A682123E1F22628B00DA30DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A682123D1F22628B00DA30DE /* QuartzCore.framework */; };
 		A68212401F22629300DA30DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A682123F1F22629300DA30DE /* CoreGraphics.framework */; };
 		A68212421F2262A300DA30DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68212411F2262A300DA30DE /* UIKit.framework */; };
 		A699007E1F1D517C008CE200 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A699007D1F1D517C008CE200 /* AppDelegate.swift */; };
 		A69900831F1D517C008CE200 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69900811F1D517C008CE200 /* Main.storyboard */; };
-		A69900851F1D517C008CE200 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69900841F1D517C008CE200 /* Assets.xcassets */; };
 		A69900881F1D517C008CE200 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69900861F1D517C008CE200 /* LaunchScreen.storyboard */; };
 		A69900931F1D517D008CE200 /* AsthmaBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69900921F1D517D008CE200 /* AsthmaBuddyTests.swift */; };
 		A699009F1F1D5648008CE200 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A699009E1F1D5648008CE200 /* MapKit.framework */; };
@@ -74,13 +74,13 @@
 		A6565FCE1F3973C900B18CD8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6565FD31F39893600B18CD8 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A6565FDB1F3AB17900B18CD8 /* HealthKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = HealthKit.playground; path = Playgrounds/HealthKit.playground; sourceTree = "<group>"; };
+		A6787A641F3CA54C00A7EB74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A682123D1F22628B00DA30DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A682123F1F22629300DA30DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A68212411F2262A300DA30DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A699007A1F1D517C008CE200 /* AsthmaBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A699007D1F1D517C008CE200 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A69900821F1D517C008CE200 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A69900841F1D517C008CE200 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A69900871F1D517C008CE200 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A69900891F1D517C008CE200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A699008E1F1D517C008CE200 /* AsthmaBuddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsthmaBuddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,10 +139,10 @@
 		A64AB24B1F30CF970021CACA /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				A6787A641F3CA54C00A7EB74 /* Assets.xcassets */,
 				A69900A21F1D5AAE008CE200 /* AsthmaBuddy.entitlements */,
 				A699007D1F1D517C008CE200 /* AppDelegate.swift */,
 				A69900811F1D517C008CE200 /* Main.storyboard */,
-				A69900841F1D517C008CE200 /* Assets.xcassets */,
 				A69900861F1D517C008CE200 /* LaunchScreen.storyboard */,
 				A69900891F1D517C008CE200 /* Info.plist */,
 			);
@@ -337,7 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A69900881F1D517C008CE200 /* LaunchScreen.storyboard in Resources */,
-				A69900851F1D517C008CE200 /* Assets.xcassets in Resources */,
+				A6787A651F3CA54C00A7EB74 /* Assets.xcassets in Resources */,
 				A69900831F1D517C008CE200 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

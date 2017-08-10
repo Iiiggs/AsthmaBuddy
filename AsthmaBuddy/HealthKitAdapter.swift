@@ -10,11 +10,6 @@ import UIKit
 import HealthKit
 import MapKit
 
-
-// [ ] add blood type
-// [X] move extensions somewhere?
-
-
 class HealthKitAdapter: NSObject {
 
     static let sharedInstance = HealthKitAdapter()
@@ -39,55 +34,55 @@ class HealthKitAdapter: NSObject {
     
     func getDemograhics(completion: @escaping DemographicsCompletionBlock) {
 //        [STEP 2]: Characteristic types
-          do {
-            let dob = try healthKitStore.dateOfBirthComponents().date!
-            let gender = try healthKitStore.biologicalSex()
-            completion(dob, gender.biologicalSex)
-        } catch  {
-            print("Error")
-        }
+//          do {
+//            let dob = try healthKitStore.dateOfBirthComponents().date!
+//            let gender = try healthKitStore.biologicalSex()
+//            completion(dob, gender.biologicalSex)
+//        } catch  {
+//            print("Error")
+//        }
     }
     
     func recordUsage(withLocation location:CLLocation?){ // pass in a competion block
 //        [STEP 3]: Save samples
-        let date = Date()
-        
-        if let location = location {
-            let coordinateString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
-            
-            let sample = HKQuantitySample(
-                type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
-                quantity: quantityOne,
-                start: date,
-                end: date,
-                metadata: [usageLocationKey:coordinateString]
-            )
-            
-            healthKitStore.save(sample) { (success, error) in
-                print("saved one use to health kit, with location")
-            }
-        }
-        else {
-            let sample = HKQuantitySample(
-                type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
-                quantity: quantityOne,
-                start: date,
-                end: date
-            )
-            
-            healthKitStore.save(sample) { (success, error) in
-                print("saved one use to health kit")
-            }
-        }
+//        let date = Date()
+//        
+//        if let location = location {
+//            let coordinateString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+//            
+//            let sample = HKQuantitySample(
+//                type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
+//                quantity: quantityOne,
+//                start: date,
+//                end: date,
+//                metadata: [usageLocationKey:coordinateString]
+//            )
+//            
+//            healthKitStore.save(sample) { (success, error) in
+//                print("saved one use to health kit, with location")
+//            }
+//        }
+//        else {
+//            let sample = HKQuantitySample(
+//                type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
+//                quantity: quantityOne,
+//                start: date,
+//                end: date
+//            )
+//            
+//            healthKitStore.save(sample) { (success, error) in
+//                print("saved one use to health kit")
+//            }
+//        }
     }
     
     func getInhalerUsage(completion: @escaping InhalerUsageCompletionBlock){
 //        [STEP 5]: Get data for chart and map
-        let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!
-        let query = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: 100, sortDescriptors: nil) { (query, samples, error) in
-            completion(samples as? [HKQuantitySample])
-        }
-        
-        self.healthKitStore.execute(query)
+//        let sampleType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!
+//        let query = HKSampleQuery(sampleType: sampleType, predicate: nil, limit: 100, sortDescriptors: nil) { (query, samples, error) in
+//            completion(samples as? [HKQuantitySample])
+//        }
+//        
+//        self.healthKitStore.execute(query)
     }
 }

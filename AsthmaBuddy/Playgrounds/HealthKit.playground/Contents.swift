@@ -64,10 +64,28 @@ let workout2 = HKWorkout(
 
 
 // HKQuery -  
-//let query = HKQuery.que
+// predicate factory
 
 //HKSampleQuery
+let workoutType = HKObjectType.workoutType()
+let runPredicate =
+    HKQuery.predicateForWorkoutsWithWorkoutActivityType(HKWorkoutActivityType.Running)
+
+let sampleQuery =
+    HKSampleQuery(
+    sampleType:workoutType ,
+    predicate: runPredicate,
+    limit: 100,
+    sortDescriptors: nil)
+    { (sampleQuery, samples, error) in
+    // if no error, samples will be [HKWorkout]
+}
+
+
 //HKObserverQuery
+
+//let observer = 
+
 //HKStatisticsCollectionQuery/HKStatisticsQuery
 
 
