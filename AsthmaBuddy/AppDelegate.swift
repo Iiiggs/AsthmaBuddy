@@ -7,17 +7,44 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var leakPHI = true
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
         print("\(HealthKitAdapter.sharedInstance)")
         
+        
+        if leakPHI {
+            // Leaking PHI:
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+                let content = UNMutableNotificationContent()
+                content.title = NSString.localizedUserNotificationString(forKey:
+                    "Your Inhaler Is Ready for Pickup", arguments: nil)
+                content.body = NSString.localizedUserNotificationString(forKey:
+                    "Pick up at ABC Pharmacy", arguments: nil)
+                
+                // Deliver the notification in five seconds.
+                content.sound = UNNotificationSound.default()
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
+                                                                repeats: false)
+                
+                // Schedule the notification.
+                let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
+                let center = UNUserNotificationCenter.current()
+                center.add(request, withCompletionHandler: nil)
+            }
+            
+            
+        }
         return true
     }
 

@@ -17,11 +17,11 @@ let types : Set = [HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdenti
 
 
 //if (HKHealthStore.isHealthDataAvailable()) {
-    let healthStore = HKHealthStore()
-    healthStore.requestAuthorization(
-        toShare: types,
-        read: types)
-        {_,_ in print("check response")}
+//    let healthStore = HKHealthStore()
+//    healthStore.requestAuthorization(
+//        toShare: types,
+//        read: types)
+//        {_,_ in print("check response")}
     
 //}
 

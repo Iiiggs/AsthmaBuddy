@@ -10,6 +10,9 @@ import UIKit
 import HealthKit
 import MapKit
 
+    
+// Wrap HealthKit in HealthKitAdapter
+    
 class HealthKitAdapter: NSObject {
 
     static let sharedInstance = HealthKitAdapter()
@@ -17,22 +20,23 @@ class HealthKitAdapter: NSObject {
     private let healthKitStore = HKHealthStore()
     
     override init() {
-//        [STEP 1]: Authorization
+        
+//      I. Authorization
+        
         let typesToShare : Set = [inhalerUsageQuantitityType]
         let typesToRead : Set = [inhalerUsageQuantitityType, dobCharacteristicType, genderCharacteristicType]
 
         if(HKHealthStore.isHealthDataAvailable()){
-            self.healthKitStore.requestAuthorization(toShare: typesToShare, read: typesToRead, completion: { (success, error) in
+            self.healthKitStore.requestAuthorization(toShare: typesToShare, read: typesToRead) {success, error in
                 let hkReadyNotif = Notification(name: .healthKitReady, object: nil)
-                // get some data
                 NotificationCenter.default.post(hkReadyNotif)
-            })
+            }
         }
     }
     
     func getDemograhics(completion: @escaping DemographicsCompletionBlock) {
-//        [STEP 2]: Characteristic types
-          do {
+//        II. Get Characteristics
+        do {
             let dob = try healthKitStore.dateOfBirthComponents().date!
             let gender = try healthKitStore.biologicalSex()
             completion(dob, gender.biologicalSex)
@@ -42,12 +46,17 @@ class HealthKitAdapter: NSObject {
     }
     
     func recordUsage(withLocation location:CLLocation?){ // pass in a competion block
-//        [STEP 3]: Save samples
+//      III. Save samples
         let date = Date()
         
         if let location = location {
+            
+            
+            
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
+            
+            // III. Save samples with location
             
             let coordinateString = "\(lat),\(lon)"
 
@@ -64,8 +73,11 @@ class HealthKitAdapter: NSObject {
             }
         }
         else {
+            
+            //      III. Save samples
+
             let sample = HKQuantitySample(
-                type: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.inhalerUsage)!,
+                type: inhalerUsageQuantitityType,
                 quantity: quantityOne,
                 start: date,
                 end: date
@@ -78,7 +90,7 @@ class HealthKitAdapter: NSObject {
     }
     
     func getInhalerUsage(completion: @escaping InhalerUsageCompletionBlock){
-//        [STEP 5]: Get data for chart and map
+//  IV: Get data for chart and map
         let query = HKSampleQuery(
             sampleType: inhalerUsageQuantitityType,
             predicate: nil,
@@ -87,6 +99,6 @@ class HealthKitAdapter: NSObject {
                 completion(samples as? [HKQuantitySample])
             }
 
-self.healthKitStore.execute(query)
+        self.healthKitStore.execute(query)
     }
 }
