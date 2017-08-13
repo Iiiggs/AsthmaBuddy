@@ -74,7 +74,7 @@
 		A64AB2471F30CBA50021CACA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A6565FCE1F3973C900B18CD8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6565FD31F39893600B18CD8 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		A6565FDB1F3AB17900B18CD8 /* HealthKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = HealthKit.playground; path = Playgrounds/HealthKit.playground; sourceTree = "<group>"; };
+		A6565FDB1F3AB17900B18CD8 /* HealthKit.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = HealthKit.playground; path = Playgrounds/HealthKit.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A6787A641F3CA54C00A7EB74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A682123D1F22628B00DA30DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A682123F1F22629300DA30DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };

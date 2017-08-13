@@ -35,7 +35,11 @@ extension Array where  Iterator.Element == HKQuantitySample {
         var result = [Date : Double] ()
         while(currentDate <= end){
             let tomorrow = NSCalendar.current.date(byAdding: .day, value: 1, to: currentDate)!
-            let tadays_samples =  self.filter({ (s) -> Bool in s.startDate > currentDate && s.startDate < tomorrow }) // todo: shorten syntax
+
+            let tadays_samples = self.filter {
+                $0.startDate > currentDate && $0.startDate < tomorrow
+            }
+            
             let sum = tadays_samples.reduce(0.0, { (r, sample) -> Double in
                 let sum : Double = r
                 let value : Double = sample.quantity.doubleValue(for:HKUnit.count())
