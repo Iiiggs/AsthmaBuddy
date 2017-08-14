@@ -8,9 +8,6 @@
 
 import UIKit
 
-//[ ] Insert nice looking sample data for "last week in Denver"
-
-
 class MainViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
 

@@ -13,10 +13,6 @@ import HealthKit
 import ResearchKit
 import CoreLocation
 
-// MARK: HealthKit Constants
-let chartStartDateString = "08/3/2017"
-let chartEndDateString = "08/11/2017"
-
 
 // MARK: Chart  Constants
 let inputFormat = "MM/dd/yyyy"
@@ -25,8 +21,6 @@ let chartFormat = "M/d"
 // MARK: Map  Constants
 let initialRegionRadius: CLLocationDistance = 75_000
 let initialLocation = CLLocation(latitude: 39.570154341901485, longitude: -105.30286789781341)
-
-// [ ] dynamic timerange
 
 
 class InsightsViewController: UIViewController, BaseHealthKitViewControllerProtocol {
@@ -77,9 +71,11 @@ class InsightsViewController: UIViewController, BaseHealthKitViewControllerProto
     // MARK: Chart
     
     func setupChart(){
-        formatter.dateFormat = inputFormat
-        self.startDate = formatter.date(from: chartStartDateString)!
-        self.endDate = formatter.date(from: chartEndDateString)!
+        let now = Date()
+        let weekAgo = NSCalendar.current.date(byAdding: .day, value: -7, to: now)!
+        
+        self.startDate = weekAgo
+        self.endDate = now
         
         self.lineGraphChart.dataSource = self
     }

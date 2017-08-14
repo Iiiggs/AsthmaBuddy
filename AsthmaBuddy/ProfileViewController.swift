@@ -12,10 +12,6 @@ import HealthKit
 
 
 
-// [ ] add button for creating sample data: HealthKitAdapter.sharedInstance.createSampleData()
-// [ ] deal with no location services or denied gracefully
-// [ ] healthkit ready didn't work on fresh install
-
 
 class ProfileViewController: UIViewController, BaseHealthKitViewControllerProtocol {
     
@@ -84,6 +80,7 @@ extension ProfileViewController : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
+        gettingLocation = false
         self.saveUsage(location: nil)
     }
 }
