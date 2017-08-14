@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F73D47F1F420D8A008110AC /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F73D47E1F420D8A008110AC /* ResearchKit.framework */; };
+		3F73D4801F420D8A008110AC /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F73D47E1F420D8A008110AC /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A645C76B1F1E9A6000FA79D9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645C76A1F1E9A6000FA79D9 /* ProfileViewController.swift */; };
 		A645C76D1F1E9BCD00FA79D9 /* InsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645C76C1F1E9BCD00FA79D9 /* InsightsViewController.swift */; };
-		A64AB2441F2FFF140021CACA /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A64AB2431F2FFF140021CACA /* ResearchKit.framework */; };
-		A64AB2451F2FFF140021CACA /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A64AB2431F2FFF140021CACA /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A64AB2481F30CBA50021CACA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AB2471F30CBA50021CACA /* MainViewController.swift */; };
 		A6565FCF1F3973C900B18CD8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6565FCE1F3973C900B18CD8 /* Constants.swift */; };
 		A6565FD41F39893600B18CD8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6565FD31F39893600B18CD8 /* Utilities.swift */; };
@@ -29,20 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A6831F851F3239E800B072F9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A64AB2381F2FFE490021CACA /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B183A5951A8535D100C76870;
-			remoteInfo = ResearchKit;
-		};
-		A6831F871F3239E800B072F9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A64AB2381F2FFE490021CACA /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
-			remoteInfo = ResearchKitTests;
-		};
 		A699008F1F1D517C008CE200 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A69900721F1D517C008CE200 /* Project object */;
@@ -53,13 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A64AB2461F2FFF150021CACA /* Embed Frameworks */ = {
+		3F73D4811F420D8A008110AC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A64AB2451F2FFF140021CACA /* ResearchKit.framework in Embed Frameworks */,
+				3F73D4801F420D8A008110AC /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,10 +53,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F73D47E1F420D8A008110AC /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = Carthage/Build/iOS/ResearchKit.framework; sourceTree = "<group>"; };
 		A645C76A1F1E9A6000FA79D9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A645C76C1F1E9BCD00FA79D9 /* InsightsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsViewController.swift; sourceTree = "<group>"; };
-		A64AB2381F2FFE490021CACA /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
-		A64AB2431F2FFF140021CACA /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64AB2471F30CBA50021CACA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A6565FCE1F3973C900B18CD8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6565FD31F39893600B18CD8 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -101,7 +86,7 @@
 			files = (
 				A68212421F2262A300DA30DE /* UIKit.framework in Frameworks */,
 				A68212401F22629300DA30DE /* CoreGraphics.framework in Frameworks */,
-				A64AB2441F2FFF140021CACA /* ResearchKit.framework in Frameworks */,
+				3F73D47F1F420D8A008110AC /* ResearchKit.framework in Frameworks */,
 				A682123E1F22628B00DA30DE /* QuartzCore.framework in Frameworks */,
 				A699009F1F1D5648008CE200 /* MapKit.framework in Frameworks */,
 				A69900A41F1D5AAE008CE200 /* HealthKit.framework in Frameworks */,
@@ -160,19 +145,9 @@
 			name = Playgrounds;
 			sourceTree = "<group>";
 		};
-		A6831F801F3239E800B072F9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A6831F861F3239E800B072F9 /* ResearchKit.framework */,
-				A6831F881F3239E800B072F9 /* ResearchKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		A69900711F1D517C008CE200 = {
 			isa = PBXGroup;
 			children = (
-				A64AB2381F2FFE490021CACA /* ResearchKit.xcodeproj */,
 				A699007C1F1D517C008CE200 /* AsthmaBuddy */,
 				A69900911F1D517D008CE200 /* AsthmaBuddyTests */,
 				A699007B1F1D517C008CE200 /* Products */,
@@ -212,7 +187,7 @@
 		A699009D1F1D5648008CE200 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A64AB2431F2FFF140021CACA /* ResearchKit.framework */,
+				3F73D47E1F420D8A008110AC /* ResearchKit.framework */,
 				A68212411F2262A300DA30DE /* UIKit.framework */,
 				A682123F1F22629300DA30DE /* CoreGraphics.framework */,
 				A682123D1F22628B00DA30DE /* QuartzCore.framework */,
@@ -232,7 +207,7 @@
 				A69900761F1D517C008CE200 /* Sources */,
 				A69900771F1D517C008CE200 /* Frameworks */,
 				A69900781F1D517C008CE200 /* Resources */,
-				A64AB2461F2FFF150021CACA /* Embed Frameworks */,
+				3F73D4811F420D8A008110AC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -273,7 +248,6 @@
 				TargetAttributes = {
 					A69900791F1D517C008CE200 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 34293QQW24;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -303,12 +277,6 @@
 			mainGroup = A69900711F1D517C008CE200;
 			productRefGroup = A699007B1F1D517C008CE200 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = A6831F801F3239E800B072F9 /* Products */;
-					ProjectRef = A64AB2381F2FFE490021CACA /* ResearchKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				A69900791F1D517C008CE200 /* AsthmaBuddy */,
@@ -316,23 +284,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		A6831F861F3239E800B072F9 /* ResearchKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ResearchKit.framework;
-			remoteRef = A6831F851F3239E800B072F9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A6831F881F3239E800B072F9 /* ResearchKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ResearchKitTests.xctest;
-			remoteRef = A6831F871F3239E800B072F9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A69900781F1D517C008CE200 /* Resources */ = {
@@ -506,10 +457,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AsthmaBuddy/AsthmaBuddy.entitlements;
-				DEVELOPMENT_TEAM = 34293QQW24;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = AsthmaBuddy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -524,10 +476,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AsthmaBuddy/AsthmaBuddy.entitlements;
-				DEVELOPMENT_TEAM = 34293QQW24;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = AsthmaBuddy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
