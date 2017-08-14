@@ -36,6 +36,7 @@ class HealthKitAdapter: NSObject {
     
     func getDemograhics(completion: @escaping DemographicsCompletionBlock) {
 //        II. Get Characteristics
+        
 //        do {
 //            let dob = try healthKitStore.dateOfBirthComponents().date!
 //            let gender = try healthKitStore.biologicalSex()
@@ -47,6 +48,7 @@ class HealthKitAdapter: NSObject {
     
     func recordUsage(withLocation location:CLLocation?){
 //      III. Save samples
+        
 //        let date = Date()
 //        
 //        if let location = location {
@@ -88,6 +90,7 @@ class HealthKitAdapter: NSObject {
     
     func getInhalerUsage(completion: @escaping InhalerUsageCompletionBlock){
 //  IV: Get data for chart and map
+        
 //        let query = HKSampleQuery(
 //            sampleType: inhalerUsageQuantitityType,
 //            predicate: nil,
